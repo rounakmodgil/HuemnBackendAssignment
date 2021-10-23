@@ -1,0 +1,257 @@
+
+###
+//Create New Branch
+POST http://localhost:3000/branch/createbranch
+Content-Type: application/json
+
+{
+    "name":"Byjus Gold",
+    "location":"Hyderabad"
+}
+//6171818776d68e6ea178e8e7
+
+
+###
+//Create New Staff
+POST http://localhost:3000/staff/createstaff
+Content-Type: application/json
+
+{
+    "name":"Ankit",
+    "designation":"admin",
+    "access":0,
+    "branch":"6171818776d68e6ea178e8e7"
+    
+}
+
+
+###
+//Create New Student
+POST http://localhost:3000/student/createstudent
+Content-Type: application/json
+
+{
+    "name":"Rounak",
+    "branch":"6171818776d68e6ea178e8e7"
+}
+
+
+###
+//Create New Subject
+POST http://localhost:3000/subject/createsubject
+Content-Type: application/json
+
+{
+    "name":"Physics",
+    "branch":"6171818776d68e6ea178e8e7"
+}
+//6172ecdd64e2cd12ce98d0f4
+
+
+###
+//Create New Book
+POST http://localhost:3000/book/createbook
+Content-Type: application/json
+
+{
+    "name":"Theory of Everything",
+    "stock":200,
+    "available":200,
+    "availability":true,
+    "subject":"6172ecdd64e2cd12ce98d0f4",
+    "branch":"6171818776d68e6ea178e8e7"
+}
+//6171183b05e6536eccb335f8
+
+
+###
+//Create Attendance for Students
+POST http://localhost:3000/student/intimeattendance
+Content-Type: application/json
+
+{
+    "student":"6172d6ac81c90155f1768538",
+    "branch":"6171818776d68e6ea178e8e7"
+}
+
+
+###
+//Update Attendance Outtime for Students
+PUT http://localhost:3000/student/outtimeattendance
+Content-Type: application/json
+
+{
+     "id":"61737ed9c9a351d7037c3408"
+}
+
+
+###
+//Create Attendance for Staff
+POST http://localhost:3000/staff/intimeattendance
+Content-Type: application/json
+
+{
+    "staff":"6172cbbd69fcad2c38d31191",
+    "branch":"6171818776d68e6ea178e8e7"
+}
+
+
+###
+//Update Attendance Outtime for Staff
+PUT http://localhost:3000/staff/outtimeattendance
+Content-Type: application/json
+
+{
+     "id":"6172e78d46e9b9474bb1c8a5"
+}
+
+
+###
+// Assign book
+POST http://localhost:3000/book/request
+Content-Type: application/json
+
+{
+    "student":"6172d6ac81c90155f1768538",
+    "book":"6172ecff64e2cd12ce98d0f7",
+    "branch":"6171818776d68e6ea178e8e7"
+}
+
+
+###
+//Update return time for book
+PUT http://localhost:3000/book/return
+Content-Type: application/json
+
+{
+     "id":"61737f5c75164b9360260c89",
+     "book":"6172ecff64e2cd12ce98d0f7"
+}
+
+
+###
+//Get All Branches
+GET http://localhost:3000/branch/allbranches
+
+
+###
+//Get All Subjects
+GET http://localhost:3000/subject/allsubjects
+
+
+###
+//Get All Staff Members
+GET http://localhost:3000/staff/allstaffs
+
+
+###
+//Get All Students
+GET http://localhost:3000/student/allstudents
+
+
+###
+//Get All Books
+GET http://localhost:3000/book/allbooks
+
+
+###
+//Get One Book
+GET http://localhost:3000/book/getbook/3627688
+
+
+###
+//Get One Staff
+GET http://localhost:3000/staff/getstaff/6172cbbd69fcad2c38d31191
+
+
+###
+//Get One Student
+GET http://localhost:3000/student/getstudent/3627688
+
+
+###
+//Get One Subject
+GET http://localhost:3000/subject/getsubject/3627688
+
+
+###
+//Get One Branch
+GET http://localhost:3000/branch/getbranch/3627688
+
+
+###
+//Delete Branch
+DELETE  http://localhost:3000/branch/deletebranch/3627688
+
+
+###
+//Delete Book
+DELETE  http://localhost:3000/book/deletebook/3627688
+
+
+###
+//Delete Staff
+DELETE  http://localhost:3000/staff/deletestaff/6172e72d46e9b9474bb1c8a1
+
+
+###
+//Delete Student
+DELETE  http://localhost:3000/student/deletestudent/6172d6ad81c90155f176853b
+
+
+###
+//Delete Subject
+DELETE  http://localhost:3000/subject/deletesubject/617181b776d68e6ea178e8e9
+
+
+###
+//Check Available Books
+GET http://localhost:3000/book/availablebooks
+
+
+###
+// Frequencies of subjects being studied
+GET http://localhost:3000/subject/stats
+
+
+###
+//Number of students at given time in library
+GET http://localhost:3000/student/inlibrary?from=2021-01-01T00:00:00.000Z&to=2022-01-01T00:00:00.000Z
+
+
+###
+//Number of staffs at given time in library
+GET http://localhost:3000/staff/inlibrary?from=2021-01-01T00:00:00.000Z&to=2022-01-01T00:00:00.000Z
+
+
+###
+//Monitor students attendance
+GET http://localhost:3000/student/attendance/6172d6ac81c90155f1768538
+
+
+###
+//Monitor staff attendance
+GET http://localhost:3000/staff/attendance/6172cbbd69fcad2c38d31191
+
+
+###
+//Update subject
+PUT http://localhost:3000/subject/update
+Content-Type: application/json
+
+{
+     "id":"6172ecdd64e2cd12ce98d0f4",
+     "name":"Physics",
+     "branch":"6171818776d68e6ea178e8e7"
+}
+
+
+
+//TODO:
+//v Monitor individual attendance of staff and student for given date
+//v Most studied subject
+//v At given time how many students and staff in lib
+//v update apis []
+//-------- Middleweares------
+//v Should only assign book to read if in lib and available
+//x extra tasks
